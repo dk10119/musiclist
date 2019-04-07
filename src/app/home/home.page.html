@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Welcome to the Music List app!
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content>
+    <ion-card class="welcome-card">
+        <ion-img src="/assets/shapes.svg"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle>Please sign in first!</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+  <firebase-ui></firebase-ui>
+  <h1 *ngIf="afAuth.auth.currentUser">
+    Welcome {{afAuth.auth.currentUser.displayName}}!
+  </h1>
+  <ion-button *ngIf="afAuth.auth.currentUser" routerLink="/tabs" routerDirection="forward">
+    Continue
+  </ion-button>
+  <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()">
+    Sign out
+  </ion-button>
+</ion-content>
